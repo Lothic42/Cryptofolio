@@ -30,9 +30,13 @@ export function setupSpeedControls(simState) {
     speedLabel.textContent = simState.simDaysPerSecond.toFixed(1);
   });
 
+  const pauseLabel = document.getElementById("pause-label");
+  const pauseIcon = document.getElementById("pause-icon");
+
   pauseButton.addEventListener("click", () => {
     simState.paused = !simState.paused;
-    pauseButton.textContent = simState.paused ? "Lecture" : "Pause";
+    pauseLabel.textContent = simState.paused ? "Lecture" : "Pause";
+    pauseIcon.innerHTML = simState.paused ? "&#9654;" : "&#10073;&#10073;";
   });
 }
 
@@ -58,7 +62,7 @@ export function setupPlanetPicking({ camera, renderer, bodies, sun }) {
     const hitMesh = intersections[0].object;
 
     if (hitMesh === sun) {
-      infoPanel.innerHTML = `<h3>Soleil</h3><p>Rayon : 696 000 km</p>`;
+      infoPanel.innerHTML = factCard("Soleil", [["Rayon", "696 000 km"]]);
       infoPanel.classList.remove("hidden");
       return;
     }
@@ -66,16 +70,25 @@ export function setupPlanetPicking({ camera, renderer, bodies, sun }) {
     const body = bodies.find((b) => b.mesh === hitMesh);
     if (body) {
       const d = body.data;
-      infoPanel.innerHTML = `
-        <h3>${d.name}</h3>
-        <p>Rayon : ${d.radiusKm.toLocaleString("fr-FR")} km</p>
-        <p>Distance au Soleil : ${d.distanceKm1e6.toLocaleString("fr-FR")} millions de km</p>
-        <p>Période orbitale : ${d.orbitalPeriodDays.toLocaleString("fr-FR")} jours</p>
-        <p>Période de rotation : ${Math.abs(d.rotationPeriodHours).toLocaleString("fr-FR")} h${
-        d.rotationPeriodHours < 0 ? " (rétrograde)" : ""
-      }</p>
-      `;
+      infoPanel.innerHTML = factCard(d.name, [
+        ["Rayon", `${d.radiusKm.toLocaleString("fr-FR")} km`],
+        ["Distance au Soleil", `${d.distanceKm1e6.toLocaleString("fr-FR")} millions de km`],
+        ["Période orbitale", `${d.orbitalPeriodDays.toLocaleString("fr-FR")} j`],
+        [
+          "Rotation",
+          `${Math.abs(d.rotationPeriodHours).toLocaleString("fr-FR")} h${
+            d.rotationPeriodHours < 0 ? " (rétrograde)" : ""
+          }`,
+        ],
+      ]);
       infoPanel.classList.remove("hidden");
     }
   });
+}
+
+function factCard(name, facts) {
+  const rows = facts
+    .map(([label, value]) => `<div class="fact"><dt>${label}</dt><dd>${value}</dd></div>`)
+    .join("");
+  return `<p class="eyebrow">Fiche</p><h3>${name}</h3><dl class="fact-list">${rows}</dl>`;
 }

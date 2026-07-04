@@ -17,15 +17,24 @@
   <body>
     <div id="scene-container"></div>
 
+    <header id="masthead">
+      <p class="eyebrow">Simulation 3D</p>
+      <h1>Système solaire</h1>
+    </header>
+
     <div id="ui-panel">
+      <p class="eyebrow">Commande du temps</p>
       <div class="control-row">
-        <label for="speed-slider">Vitesse : <span id="speed-value">5</span> jours simulés / seconde</label>
+        <label for="speed-slider">Vitesse — <span id="speed-value">5</span> j. simulés / s</label>
         <input type="range" id="speed-slider" />
       </div>
-      <button id="pause-toggle">Pause</button>
+      <button id="pause-toggle" type="button">
+        <span id="pause-icon" aria-hidden="true">&#10073;&#10073;</span>
+        <span id="pause-label">Pause</span>
+      </button>
     </div>
 
-    <div id="info-panel" class="hidden"></div>
+    <aside id="info-panel" class="hidden"></aside>
 
     <script type="module" src="js/main.js"></script>
   </body>
