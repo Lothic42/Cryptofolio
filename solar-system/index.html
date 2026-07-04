@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Système solaire en 3D</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="scene-container"></div>
+
+    <div id="ui-panel">
+      <div class="control-row">
+        <label for="speed-slider">Vitesse : <span id="speed-value">5</span> jours simulés / seconde</label>
+        <input type="range" id="speed-slider" />
+      </div>
+      <button id="pause-toggle">Pause</button>
+    </div>
+
+    <div id="info-panel" class="hidden"></div>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

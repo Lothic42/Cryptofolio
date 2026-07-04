@@ -1,0 +1,92 @@
+// Données astronomiques réelles (NASA Planetary Fact Sheet).
+// Unités volontairement non converties : km, jours, heures, degrés.
+// Les conversions vers les unités de scène se font uniquement à l'affichage (voir config.js).
+
+export const SUN = {
+  name: "Soleil",
+  radiusKm: 696000,
+  color: 0xffdd55,
+};
+
+export const PLANETS = [
+  {
+    name: "Mercure",
+    radiusKm: 2439.7,
+    distanceKm1e6: 57.9,
+    orbitalPeriodDays: 87.97,
+    rotationPeriodHours: 1407.6,
+    eccentricity: 0.2056,
+    axialTiltDeg: 0.03,
+    color: 0x9c9c94,
+  },
+  {
+    name: "Vénus",
+    radiusKm: 6051.8,
+    distanceKm1e6: 108.2,
+    orbitalPeriodDays: 224.70,
+    rotationPeriodHours: -5832.5,
+    eccentricity: 0.0068,
+    axialTiltDeg: 177.4,
+    color: 0xe0c16c,
+  },
+  {
+    name: "Terre",
+    radiusKm: 6378.1,
+    distanceKm1e6: 149.6,
+    orbitalPeriodDays: 365.25,
+    rotationPeriodHours: 23.93,
+    eccentricity: 0.0167,
+    axialTiltDeg: 23.44,
+    color: 0x3a7bd5,
+  },
+  {
+    name: "Mars",
+    radiusKm: 3389.5,
+    distanceKm1e6: 227.9,
+    orbitalPeriodDays: 686.98,
+    rotationPeriodHours: 24.62,
+    eccentricity: 0.0934,
+    axialTiltDeg: 25.19,
+    color: 0xc1440e,
+  },
+  {
+    name: "Jupiter",
+    radiusKm: 69911,
+    distanceKm1e6: 778.5,
+    orbitalPeriodDays: 4332.59,
+    rotationPeriodHours: 9.93,
+    eccentricity: 0.0484,
+    axialTiltDeg: 3.13,
+    color: 0xd8ba7d,
+  },
+  {
+    name: "Saturne",
+    radiusKm: 58232,
+    distanceKm1e6: 1432.0,
+    orbitalPeriodDays: 10759.22,
+    rotationPeriodHours: 10.66,
+    eccentricity: 0.0539,
+    axialTiltDeg: 26.73,
+    color: 0xead6b0,
+  },
+  {
+    name: "Uranus",
+    radiusKm: 25362,
+    distanceKm1e6: 2867.0,
+    orbitalPeriodDays: 30688.5,
+    rotationPeriodHours: -17.24,
+    eccentricity: 0.0473,
+    axialTiltDeg: 97.77,
+    color: 0x9fe3e3,
+  },
+  {
+    name: "Neptune",
+    radiusKm: 24622,
+    distanceKm1e6: 4515.0,
+    orbitalPeriodDays: 60182,
+    rotationPeriodHours: 16.11,
+    eccentricity: 0.0086,
+    axialTiltDeg: 28.32,
+    color: 0x4066e0,
+  },
+];
